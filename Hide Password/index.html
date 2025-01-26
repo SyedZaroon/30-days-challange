@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <script src="https://kit.fontawesome.com/9412923321.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #200850;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        input{
+             flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+        }
+        .container{
+           display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #fff;
+  width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="password" placeholder="password" id="password"><i class="fa-regular fa-eye"></i>
+    </div>
+
+    <script>
+        const eye = document.querySelector(".fa-eye");
+        const password = document.querySelector("#password");
+
+        eye.addEventListener("click", ()=>{
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            eye.classList.toggle("fa-eye-slash");
+            eye.classList.toggle("fa-eye");
+        })
+
+    </script>
+</body>
+</html>

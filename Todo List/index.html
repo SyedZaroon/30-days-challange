@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: linear-gradient(163deg, rgba(34,193,195,1) 45%, rgba(253,187,45,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .todo-box{
+            background-color: white;
+            border-radius: 4px;
+            padding: 30px 40px;
+        }
+        .todo-header{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .todo-header h2{
+            color: chocolate;
+        }
+        .fa-book{
+            font-size: 20px;
+        }
+        .todo-form{
+            margin-top: 20px;
+        }
+        #text{
+            border-radius: 20px;
+            border:0;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        #submit{
+
+            background-color: orangered;
+            border-radius: 20px;
+            padding: 10px 20px;
+            color: white;
+            border: 0;
+        }
+
+        .task{
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .fa-xmark{
+            align-self: flex-end;
+        }
+        .task-right{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .tasklist::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -30px;
+            height: 20px;
+            width: 20px;
+            background-repeat: no-repeat;
+            background-image: url(unchecked.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tasklist:hover{
+            cursor: pointer;
+        }
+
+        .check .tasklist {
+            text-decoration:line-through;
+        }
+        .check .cicle{
+            color: orange;
+        }
+        .check .tasklist::before{
+            background-image: url(checked.png);
+        }
+
+        .fa-xmark{
+            position: relative;
+            z-index: 1;
+        }
+        .fa-xmark:hover::after{
+            content: '';
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+            background-color: #f2f2f2;
+            border-radius: 50%;
+            padding: 10px;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="todo-box">
+        <div class="todo-header">
+            <h2>To-Do List</h2>
+            <i class="fa-solid fa-book"></i>
+        </div>
+
+        <div class="todo-form">
+            <form action="">
+            <input type="text" placeholder="Add Your Task" id="text">
+            <input type="submit" value="Add" id="submit"> 
+            </form>
+        </div>
+
+        <div class="todo-body">
+        </div>
+    </div>
+
+    <script>
+      const todobody = document.querySelector(".todo-body");
+      const form =document.querySelector("form");
+      const text = document.querySelector("#text");
+      
+      form.addEventListener('submit',(e)=>{
+
+        e.preventDefault();
+        if(text.value===''){
+            alert("please add task");
+        }
+        else{
+            const taskdetails = document.createElement("div");
+            taskdetails.classList.add("task")
+            taskdetails.innerHTML=`<div class="task-right">
+                <p class="tasklist ">${text.value}</p>
+                </div>
+                <i class="fa-solid fa-xmark task-left"></i>`;
+                todobody.appendChild(taskdetails);
+                text.value="";
+                saveData();
+        }
+
+      })
+
+      todobody.addEventListener('click',(e)=>{
+        if(e.target.closest(".task-right")){
+            e.target.closest(".task-right").classList.toggle("check");
+            saveData();
+        }
+        if(e.target.classList.contains("task-left")){
+            const task = e.target.closest(".task");
+            if(task){
+                task.remove();
+            }
+            saveData();
+        }
+      })
+
+      function saveData(){
+        localStorage.setItem("data", todobody.innerHTML);
+      }
+
+      function showData(){
+        todobody.innerHTML = localStorage.getItem("data");
+      }
+
+      showData();
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calcualtor">
+            <form action="">
+                <input type="text" value="" id="text" name="display">
+
+                <div class="buttons">
+                    <input type="button" value="AC" id="ac" onclick="display.value = ''">
+                    <input type="button" value="DE" id="de" onclick="display.value = display.value.toString().slice(0,-1) ">
+                    <input type="button" value="." id="point" onclick="display.value += '.'">
+                    <input type="button" value="/" id="divide" onclick="display.value += '/'">
+
+                    <input type="button" value="7" id="seven" onclick="display.value += '7'">
+                    <input type="button" value="8" id="eight" onclick="display.value += '8'">
+                    <input type="button" value="9" id="nine" onclick="display.value += '9'">
+                    <input type="button" value="*" id="multi" onclick="display.value += '*'">
+
+                    <input type="button" value="4" id="four" onclick="display.value += '4'">
+                    <input type="button" value="5" id="five" onclick="display.value += '5'">
+                    <input type="button" value="6" id="six" onclick="display.value += '6'">
+                    <input type="button" value="-" id="minus" onclick="display.value += '-'">
+
+                    <input type="button" value="1" id="one" onclick="display.value += '1'">
+                    <input type="button" value="2" id="two" onclick="display.value += '2'">
+                    <input type="button" value="3" id="three" onclick="display.value += '3'">
+                    <input type="button" value="+" id="plus" onclick="display.value += '+'">                    
+                    
+                    <input type="button" value="0" id="zero" onclick="display.value += '0'">
+                    <input type="button" value="00" id="doublezero" onclick="display.value += '00'">               
+                    <input type="button" value="=" id="equal">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('text');
+        document.getElementById('equal').addEventListener('click', () => {
+                try {
+                    display.value = eval(display.value); 
+                } catch (error) {
+                    display.value = 'Error'; 
+                }
+            });
+    </script>
+</body>
+</html>

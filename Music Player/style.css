@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #333333;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    
+
+}
+.box{
+    background-color: #FDE2E3;
+    width: 350px;
+    padding: 20px 30px;
+    border-radius: 5px;
+   
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circle{
+    background-color: white;
+    border-radius: 50px;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.musicimg{
+    background-color: white;
+        border-radius: 50%;
+        padding: 4px;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+}
+
+.songdetails{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.music,
+.controlers{
+    margin-top: 20px;
+}
+.controlers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  
+   
+}
+#range{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background-color: #f53191;
+    border-radius: 3px;
+}
+
+#range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: #f53191;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid white;
+}

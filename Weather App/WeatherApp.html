@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .appbox{
+background: linear-gradient(176deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+padding: 40px 20px;
+border-radius: 4px;
+    }
+
+    form input{
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+    }
+    input:focus {
+    outline: none;
+    border: none;
+}
+#search{
+    width: 90%;
+}
+#submit{
+    background-color: white;
+    border: none;
+    border-radius:50% ;
+    padding: 7px;
+}
+.appbox-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    height: fit-content;
+}
+.appbox-body-temprature,
+.city-name{
+    font-size: 45px;
+    margin: 0px;
+}
+.appbox-footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 20px;
+}
+.footer-details{
+    display: flex;
+    gap: 10px;
+}
+.error{
+    margin-top: 10px;
+    color: white;
+    font-weight: 900;
+    display: none;
+}
+</style>
+<body>
+    <div class="box">
+        <div class="appbox">
+            <div class="appbox-header">
+                <form >
+                    <input id="search" type="search" placeholder="New York">
+                    <button id="submit" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <p class="error">Invalid City Name</p>
+            <div class="appbox-body">
+                <div class="appbox-body-img">
+                    <img src="clear.png" width="100px" height="100px">
+                </div>
+                <div class="appbox-body-temprature">
+                    <p>7<sup>o</sup>c</p>
+                </div>
+                <p class="city-name">New York</p>
+            </div>
+            <div class="appbox-footer">
+                <div class="footer-right footer-details">
+                    <img src="humidity.png" width="50px" height="50px">
+                    <div class="footer-right-details">
+                        <h2>48%</h2>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="footer-left footer-details">
+                    <img src="wind.png" width="50px" height="50px">
+                    <div class="footer-right-details">
+                        <h2>10.29 km/h</h2>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+    </script>
+</body>
+</html>

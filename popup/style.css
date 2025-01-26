@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #34486D;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+}
+
+.popup{
+    background-color: white;
+    border-radius: 4px;
+    padding: 50px 30px 20px;
+    width: 300px;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+}
+.popup.visible{
+    
+    top: 50%;
+        left: 50%;
+        opacity: 1;
+        transform: translate(-50%,-50%);
+        visibility: visible;
+}
+.heading{
+    text-align: center;
+}
+
+.description{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn{
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #63B841;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.fa-circle-check{
+    color: #63B841;
+    font-size: 60px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:#00203A;
+           width: fit-content;
+            height: 100vh;
+            margin-left: 20px;
+        }
+        .passwordbox{
+            font-size: 30px;
+            border-bottom: 3px solid #01834E;
+            color:white;
+
+        }
+        .password{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .copy{
+            position: absolute;
+            font-size: 15px;
+            
+        }
+        #password,
+        button{
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="passwordbox">
+        <h1>Generate<br> <p style="color: #01834E;">Random Password</p></h1>
+        </div>
+        <div class="password">
+           
+            <input type="text" placeholder="password" id="password">
+            <span class="copy" onclick="copy()">&#128203;</span>
+           
+            <button>Generate Password</button>
+        </div>
+
+        <script>
+            const password = document.querySelector("#password");
+            const button = document.querySelector("button");
+
+            button.addEventListener("click",()=>{
+      
+                const length=12;
+                 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:',.<>?/`~";
+                let text = "";
+
+                for (let i = 0; i < length; i++) {
+                    const randomIndex = Math.floor(Math.random() * characters.length);
+                    text += characters[randomIndex];
+                }
+                password.value=text;
+            })
+
+            function copy(){
+                password.select();
+                document.execCommand("copy");
+            }
+        </script>
+  
+</body>
+</html>
