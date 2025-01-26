@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,84 @@
     <script src="https://kit.fontawesome.com/9412923321.js" crossorigin="anonymous"></script>
 
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background-color: #200850;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
-        input{
-             flex: 1;
-  border: none;
-  outline: none;
-  padding: 10px;
-  font-size: 16px;
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
         }
-        .container{
-           display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 10px;
-  background-color: #fff;
-  width: 300px;
+
+        .container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            background-color: #fff;
+            width: 300px;
+        }
+
+        #strength {
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 10px;
+            display: block;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <input type="password" placeholder="password" id="password"><i class="fa-regular fa-eye"></i>
+    <div>
+        <div class="container">
+            <input type="password" placeholder="password" id="password">
+            <i class="fa-regular fa-eye"></i>
+        </div>
+        <span id="strength"></span>
     </div>
 
     <script>
         const eye = document.querySelector(".fa-eye");
         const password = document.querySelector("#password");
+        const text = document.querySelector("#strength");
 
-        eye.addEventListener("click", ()=>{
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
+        // Toggle password visibility
+        eye.addEventListener("click", () => {
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
             eye.classList.toggle("fa-eye-slash");
-            eye.classList.toggle("fa-eye");
-        })
+        });
 
+        // Check password strength
+        password.addEventListener("input", () => {
+            const value = password.value;
+            if (value.length <= 4) {
+                text.textContent = "Password is weak";
+                text.style.color = "red";
+            } else if (value.length <= 8) {
+                text.textContent = "Password is medium";
+                text.style.color = "orange";
+            } else {
+                text.textContent = "Password is strong";
+                text.style.color = "green";
+            }
+        });
     </script>
 </body>
+
 </html>
