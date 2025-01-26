@@ -71,20 +71,27 @@
             eye.classList.toggle("fa-eye-slash");
         });
 
-        // Check password strength
-        password.addEventListener("input", () => {
+       password.addEventListener("input", () => {
             const value = password.value;
+            const hasUppercase = /[A-Z]/.test(value); 
+            const hasLowercase = /[a-z]/.test(value); 
+            const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(value); 
+
             if (value.length <= 4) {
                 text.textContent = "Password is weak";
                 text.style.color = "red";
             } else if (value.length <= 8) {
                 text.textContent = "Password is medium";
                 text.style.color = "orange";
-            } else {
+            } else if (hasUppercase && hasLowercase && hasSymbol) {
                 text.textContent = "Password is strong";
                 text.style.color = "green";
+            } else {
+                text.textContent = "Password is medium";
+                text.style.color = "orange";
             }
         });
+
     </script>
 </body>
 

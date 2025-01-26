@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Text To speech</title>
+</head>
+<body>
+    <Div class="container">
+        <div class="speechbody">
+            <h1>Text To Speech</h1>
+            <textarea name="" id="textarea" cols="100" rows="10" placeholder="Write Anything here"></textarea>
+
+            <div class="form">
+                <select name="" id="select">Select Language</select>
+                <button class="submit" id="submit" value="Listine">Listine</button>
+            </div>
+        </div>
+    </Div>
+    
+</body>
+<script>
+
+    const speech = new SpeechSynthesisUtterance();
+        const select = document.querySelector("#select");
+        const btn = document.querySelector("#submit");
+
+    const textarea = document.querySelector("#textarea");
+
+    btn.addEventListener("click",()=>{
+        speech.text= textarea.value;
+        window.speechSynthesis.speak(speech);
+    })
+
+
+    let voices = [];
+
+        let voiceSelect = document.querySelector("select");
+
+        window.speechSynthesis.onvoiceschanged = () => {
+            voices = window.speechSynthesis.getVoices();
+            speech.voice = voices[0]; // Set the default voice to the first one
+
+            // Populate the select dropdown with voice options
+            voices.forEach((voice, i) => {
+                voiceSelect.options[i] = new Option(voice.name, i);
+            });
+        };
+
+</script>
+</html>
