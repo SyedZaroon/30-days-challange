@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="containerbody">
+
+            <div class="gallerybody">
+            <img src="back.png" alt="" id="back">
+            <div class="gallery">
+                
+                <img src="image-1.png" alt="">
+                <img src="image-2.png" alt="">
+                <img src="image-3.png" alt="">
+                <img src="image-4.png" alt="">
+                <img src="image-5.png" alt="">
+                <img src="image-6.png" alt="">
+                
+            </div>
+            <img src="next.png" alt="" id="next">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const gallery = document.querySelector('.gallery');
+            const backButton = document.getElementById('back');
+            const nextButton = document.getElementById('next');
+
+            backButton.addEventListener('click', () => {
+                gallery.scrollBy({ left: -420, behavior: 'smooth' }); 
+            });
+
+            nextButton.addEventListener('click', () => {
+                gallery.scrollBy({ left: 420, behavior: 'smooth' }); 
+            });
+
+    </script>
+</body>
+</html>
