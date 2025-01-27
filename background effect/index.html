@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Background Image</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="imagebox">
+            <img src="transparent.png" alt="" width="100%">
+
+            <div class="orignalimg" id="imgWrap">
+                <img src="original.jpg" alt="" id="orignalimg">
+            </div>
+
+            <!-- Line divider -->
+            <div id="line">
+                <img src="arrow.png" width="30px">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ImgBox = document.querySelector(".imagebox");
+        var imgWrap = document.querySelector("#imgWrap");
+        var originalImg = document.getElementById("orignalimg");
+        var line = document.getElementById("line");
+
+        // Set the width of the original image to match the ImgBox width
+        originalImg.style.width = ImgBox.offsetWidth + "px";
+
+        // Get the left offset of ImgBox
+        var leftSpace = ImgBox.offsetLeft;
+
+        // Add mousemove event to ImgBox
+        ImgBox.onmousemove = function (e) {
+            // Calculate the width based on mouse position
+            var boxWidth = (e.pageX - leftSpace) + "px";
+            imgWrap.style.width = boxWidth; // Update imgWrap width
+            line.style.left = boxWidth;    // Update line position
+        };
+    </script>
+</body>
+
+</html>
