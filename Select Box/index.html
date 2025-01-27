@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Select Box</title>
+    <script src="https://kit.fontawesome.com/9412923321.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="menu">
+
+            <div class="selectxox">
+                <p id="selecttext">Please Select Menu</p>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+
+            <div class="list">
+
+                <ul>
+                    <li class="sociallink">
+                        <i class="fa-brands fa-facebook"></i>
+                        <p>FaceBook</p>
+                    </li>
+
+                    <li class="sociallink">
+                        <i class="fa-brands fa-instagram"></i>
+                        <p>Instagram</p>
+                    </li>
+
+                    <li class="sociallink">
+                        <i class="fa-brands fa-twitter"></i>
+                        <p>Twitter</p>
+                    </li>
+
+                    <li class="sociallink">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <p>WhatsApp</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        const selectxox = document.querySelector(".selectxox");
+        const arrow = document.querySelector(".fa-caret-down");
+        const list = document.querySelector(".list");
+        const text = document.querySelector("#selecttext");
+
+        selectxox.addEventListener("click", () => {
+            arrow.classList.toggle("rotate");
+            list.classList.toggle("shown");
+        });
+
+        list.addEventListener("click", (e) => {
+            if (e.target.closest(".sociallink")) {
+                const selectedText = e.target.closest(".sociallink").textContent.trim();
+                text.textContent = selectedText;
+                list.classList.remove("shown");
+                arrow.classList.remove("rotate");
+            }
+        });
+    </script>
+</body>
+
+</html>
